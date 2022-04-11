@@ -1,6 +1,7 @@
 # eCommerce App - Desafio Framework
 
 Olá pessoal, este app foi desenvolvido cumprindo o desafio técnico proposto pela empresa Framework.
+![ecommercescreenshots](https://user-images.githubusercontent.com/84111045/162826355-05feb649-ffd9-4e39-ba3b-428570bd6547.jpg)
 
 ## Que recursos ele possui?
 
@@ -15,4 +16,6 @@ Olá pessoal, este app foi desenvolvido cumprindo o desafio técnico proposto pe
  - Firebase Auth;
  - Armazenamento local de token;
 
-![ecommercescreenshots](https://user-images.githubusercontent.com/84111045/162826355-05feb649-ffd9-4e39-ba3b-428570bd6547.jpg)
+
+## Organização do Firebase:
+![firebase](https://user-images.githubusercontent.com/84111045/162829384-50ba08bd-7a16-4568-9c6e-8e4752009a42.jpg)
