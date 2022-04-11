@@ -1,9 +1,9 @@
 import 'package:ecommerce/shared/controllers/logincontroller.dart';
-import 'package:ecommerce/shared/objects/googlebutton.dart';
 import 'package:ecommerce/shared/objects/searchbox.dart';
 import 'package:ecommerce/shared/theme/appcolors.dart';
 import 'package:ecommerce/shared/theme/appimages.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 TextEditingController loginTextController = TextEditingController();
 TextEditingController passwordTextController = TextEditingController();
@@ -35,37 +35,38 @@ class LoginPage extends StatelessWidget {
               obscure: true,
               controller: passwordTextController,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                      color: Colors.purple,
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  child: TextButton(
-                      onPressed: () async {
-                        LoginController loginController = LoginController();
-                        await loginController.signIn(loginTextController.text,
-                            passwordTextController.text);
-                      },
-                      child: const Text(
-                        "ENTRAR",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/signup");
-                    },
-                    child: const Text("Cadastre-se"))
-              ],
+            Container(
+              margin: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.all(Radius.circular(12))),
+              child: TextButton(
+                  onPressed: () async {
+                    LoginController loginController = LoginController();
+                    await loginController.signInWithEmailandPassword(context,
+                        loginTextController.text, passwordTextController.text);
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setString("token", loginController.token);
+                    await prefs.setString("email", loginTextController.text);
+                    loginTextController.clear();
+                    passwordTextController.clear();
+                  },
+                  child: const Text(
+                    "ENTRAR",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )),
             ),
-            const Text("ou", style: TextStyle(color: Colors.white)),
-            buildLoginButton()
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/signup");
+                },
+                child: const Text(
+                  "Cadastre-se",
+                  style: TextStyle(color: Colors.white),
+                ))
           ],
         ),
       ),

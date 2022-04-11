@@ -3,6 +3,7 @@ import 'package:ecommerce/modules/login/login.dart';
 import 'package:ecommerce/modules/product/product.dart';
 import 'package:ecommerce/modules/shoppingcart/shoppingcartpage.dart';
 import 'package:ecommerce/modules/signup/signup.dart';
+import 'package:ecommerce/modules/splashscreen/splash.dart';
 import 'package:ecommerce/shared/controllers/firebasecontroller.dart';
 import 'package:ecommerce/shared/providers/generalprovider.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class AppWidget extends StatelessWidget {
         child: MaterialApp(
           title: "eCommerce - Framework",
           routes: {
+            "/splash": (context) => const Splash(),
             "/login": (context) => const LoginPage(),
             "/signup": (context) => const SignUpPage(),
             "/home": (context) => const HomePage(),
@@ -28,7 +30,7 @@ class AppWidget extends StatelessWidget {
                     .selected),
             "/cart": (context) => const ShoppingCartPage()
           },
-          initialRoute: "/login",
+          initialRoute: "/splash",
         ));
   }
 }

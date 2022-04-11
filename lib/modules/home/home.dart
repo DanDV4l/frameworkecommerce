@@ -1,3 +1,4 @@
+import 'package:ecommerce/modules/home/drawer.dart';
 import 'package:ecommerce/shared/controllers/firebasecontroller.dart';
 import 'package:ecommerce/shared/models/productmodel.dart';
 import 'package:ecommerce/shared/objects/homeItemIcon.dart';
@@ -32,6 +33,7 @@ class HomePage extends StatelessWidget {
             var _webData = snapshot.data;
 
             return Scaffold(
+                drawer: buildDrawer(context),
                 appBar: AppBar(
                   backgroundColor: AppColors.primary,
                   shadowColor: Colors.transparent,
@@ -45,10 +47,6 @@ class HomePage extends StatelessWidget {
                     IconButton(
                         onPressed: () {}, icon: const Icon(Icons.search_sharp))
                   ],
-                  leading: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.menu),
-                  ),
                 ),
                 floatingActionButton: FloatingActionButton(
                     child: const Icon(Icons.shopping_cart_checkout_rounded),
