@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1000311694960",
+    "project_id": "frameworkdesafio",
+    "storage_bucket": "frameworkdesafio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000311694960:android:8e4255a0242e703dfd76b5",
+        "android_client_info": {
+          "package_name": "com.framework.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000311694960-rfb10kfe0m5u78jjdn4d1ug0f55aoioh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.framework.ecommerce",
+            "certificate_hash": "06144f775aafe5dbe50f8ae3796351da4fe47627"
+          }
+        },
+        {
+          "client_id": "1000311694960-eqdb39jnllov8463a612uqnohhofmb65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHL3vfB_kk4H19Dw5ndbROdWF759-qITA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000311694960-eqdb39jnllov8463a612uqnohhofmb65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
