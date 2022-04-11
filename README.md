@@ -1,16 +1,18 @@
-# ecommerce
+# eCommerce App - Desafio Framework
 
-A new Flutter project.
+Olá pessoal, este app foi desenvolvido cumprindo o desafio técnico proposto pela empresa Framework.
 
-## Getting Started
+## Que recursos ele possui?
 
-This project is a starting point for a Flutter application.
+- Realização de login via Firebase;
+- Pesquisa de produtos;
+- Carrinho de compras;
+- Botão Checkout e emissão de documento em PDF;
+- Possibilidade de logout da aplicação;
+- Geração de novo Login/Senha dentro do próprio App;
+### Recursos do Firebase utilizados:
+ - Firestore;
+ - Firebase Auth;
+ - Armazenamento local de token;
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![ecommercescreenshots](https://user-images.githubusercontent.com/84111045/162826355-05feb649-ffd9-4e39-ba3b-428570bd6547.jpg)
