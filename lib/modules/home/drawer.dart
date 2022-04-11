@@ -8,8 +8,8 @@ Widget buildDrawer(context) {
     margin: const EdgeInsets.all(80),
     padding: const EdgeInsets.all(25),
     color: Colors.white,
-    height: MediaQuery.of(context).size.height * 0.5,
-    width: 300,
+    height: MediaQuery.of(context).size.height * 0.25,
+    //width: 300,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,7 +19,7 @@ Widget buildDrawer(context) {
         ),
         Text(
           Provider.of<GeneralProvider>(context, listen: false).user!.name!,
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
         const Divider(
           color: Colors.black,
@@ -32,7 +32,7 @@ Widget buildDrawer(context) {
           ),
           title: const Text(
             "SAIR",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
           onTap: () async {
             var prefs = await SharedPreferences.getInstance();

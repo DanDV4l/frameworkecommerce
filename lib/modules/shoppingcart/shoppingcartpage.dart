@@ -46,31 +46,58 @@ class ShoppingCartPage extends StatelessWidget {
 }
 
 Widget buildBody(context) {
-  return ListView.builder(
-      itemCount:
-          Provider.of<GeneralProvider>(context, listen: false).cart.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Image.network(
-            Provider.of<GeneralProvider>(context, listen: false)
-                .cart[index]
-                .imgURL,
-            fit: BoxFit.fill,
-          ),
-          title: Text(
-            "${Provider.of<GeneralProvider>(context, listen: false).cart[index].name}",
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-          ),
-          trailing: IconButton(
-            icon: const Icon(
-              Icons.delete_forever_outlined,
-              color: AppColors.primary,
-            ),
-            onPressed: () {
-              Provider.of<GeneralProvider>(context, listen: false)
-                  .removeItemFromCart(index);
-            },
-          ),
-        );
-      });
+  return Column(
+    children: [
+      SizedBox(
+        height: MediaQuery.of(context).size.height * 0.7,
+        child: ListView.builder(
+            itemCount: Provider.of<GeneralProvider>(context, listen: false)
+                .cart
+                .length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Image.network(
+                  Provider.of<GeneralProvider>(context, listen: false)
+                      .cart[index]
+                      .imgURL,
+                  fit: BoxFit.fill,
+                ),
+                title: Text(
+                  "${Provider.of<GeneralProvider>(context, listen: false).cart[index].name.toUpperCase()}",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+                trailing: IconButton(
+                  icon: const Icon(
+                    Icons.delete_forever_outlined,
+                    color: AppColors.primary,
+                  ),
+                  onPressed: () {
+                    Provider.of<GeneralProvider>(context, listen: false)
+                        .reduceToTotal(
+                            Provider.of<GeneralProvider>(context, listen: false)
+                                .cart[index]
+                                .price);
+
+                    Provider.of<GeneralProvider>(context, listen: false)
+                        .removeItemFromCart(index);
+                  },
+                ),
+              );
+            }),
+      ),
+      Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.173,
+        color: AppColors.primary,
+        child: Center(
+            child: Text(
+          "Total a pagar:\n R\$${Provider.of<GeneralProvider>(context, listen: false).total.toStringAsFixed(2)}",
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+        )),
+      ),
+    ],
+  );
 }

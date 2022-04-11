@@ -30,6 +30,8 @@ class ProductPage extends StatelessWidget {
                       Provider.of<GeneralProvider>(context, listen: false)
                           .cart
                           .add(selected);
+                      Provider.of<GeneralProvider>(context, listen: false)
+                          .addToTotal(selected.price);
                     },
                     child: Text(
                       "ADICIONAR AO CARRINHO POR R\$${selected.price}",

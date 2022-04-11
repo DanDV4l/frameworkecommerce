@@ -6,9 +6,21 @@ class GeneralProvider extends ChangeNotifier {
   Product? selected;
   User? user;
   List cart = [];
+  double total = 0;
 
   void clearCart() {
     cart.clear();
+    total = 0;
+    notifyListeners();
+  }
+
+  addToTotal(double value) {
+    total = total + value;
+    notifyListeners();
+  }
+
+  reduceToTotal(double value) {
+    total > 0 ? total = total - value : total = 0;
     notifyListeners();
   }
 
